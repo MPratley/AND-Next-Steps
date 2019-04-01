@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import FAQ from "./views/FAQ.vue";
+import NextSteps from "./views/NextSteps.vue";
+import HandyANDi from "./views/HandyANDi.vue";
 
 Vue.use(Router);
 
@@ -8,8 +10,18 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "next-steps",
+      component: NextSteps
+    },
+    {
+      path: "/faq",
+      name: "faq",
+      component: FAQ
+    },
+    {
+      path: "/handy-andi",
+      name: "handy-andi",
+      component: HandyANDi
     }
     // {
     //   path: "/about",

@@ -8,7 +8,7 @@
       <i class="material-icons">question_answer</i>
       FAQ
     </router-link>
-    <router-link to="/profile">
+    <router-link to="/handy-andi">
       <i class="material-icons">account_box</i>
       Your ANDi
     </router-link>
