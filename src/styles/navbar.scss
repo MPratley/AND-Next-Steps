@@ -118,7 +118,7 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     }
   }
 
-  .icon {
+  i {
     display: block;
     width: 1em;
     height: 1em;
@@ -145,7 +145,7 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     }
   }
 
-  .router-link-exact-active .icon {
+  .router-link-exact-active i {
     @if $hide-inactive-labels {
       margin-bottom: $bottom-nav-icon-margin-bottom;
     }

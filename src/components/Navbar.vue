@@ -1,9 +1,21 @@
 <template>
   <div id="navbar">
-    <router-link to="/">Home</router-link>
-    <router-link to="/">Home</router-link>
-    <router-link to="/">Home</router-link>
-    <router-link to="/map">Map</router-link>
+    <router-link to="/">
+      <i class="material-icons">question_answer</i>
+      FAQ
+    </router-link>
+    <router-link to="/todo">
+      <i class="material-icons">view_list</i>
+      First Week
+    </router-link>
+    <router-link to="/profile">
+      <i class="material-icons">account_box</i>
+      Profile
+    </router-link>
+    <router-link to="/map">
+      <i class="material-icons">map</i>
+      Map
+    </router-link>
   </div>
 </template>
 
@@ -16,6 +28,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/navbar.scss";
 #navbar {
-  @include bottom-nav($color-background, $color-foreground, $color-accent);
+  @include bottom-nav($color-background, $color-accent, $color-foreground);
 }
 </style>
