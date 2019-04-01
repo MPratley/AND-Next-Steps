@@ -9,6 +9,11 @@ yarn install
 ```
 yarn run serve
 ```
+OR
+```
+vue ui
+```
+and then use the web interface
 
 ### Compiles and minifies for production
 ```
