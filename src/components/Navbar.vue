@@ -1,21 +1,21 @@
 <template>
   <div id="navbar">
     <router-link to="/">
+      <i class="material-icons">view_list</i>
+      Next Steps
+    </router-link>
+    <router-link to="/faq">
       <i class="material-icons">question_answer</i>
       FAQ
     </router-link>
-    <router-link to="/todo">
-      <i class="material-icons">view_list</i>
-      First Week
-    </router-link>
     <router-link to="/profile">
       <i class="material-icons">account_box</i>
-      Profile
+      Your ANDi
     </router-link>
-    <router-link to="/map">
+    <!-- <router-link to="/map">
       <i class="material-icons">map</i>
       Map
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 
