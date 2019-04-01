@@ -5,5 +5,9 @@ module.exports = {
         data: `@import "@/styles/_variables.scss";`
       }
     }
+  },
+
+  pwa: {
+    name: "AND"
   }
 };
