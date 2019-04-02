@@ -1,8 +1,8 @@
 <template>
   <div class="xpBarDiv">
-    <p>Skill Level:</p>
+    <p>{{ xp }}%</p>
     <div class="container">
-      <div class="skills xp">{{ xp }}%</div>
+      <div :style="{ width: xp + '%' }" class="xp"></div>
     </div>
   </div>
 </template>
@@ -25,17 +25,27 @@ export default {
   box-sizing: border-box;
 }
 
-.container {
-  width: 100%;
-  background-color: $color-foreground;
+p {
+  text-align: right;
+  margin-bottom: 4px;
 }
 
-.skills {
-  text-align: right;
-  padding: 10px;
-  color: white;
+.container {
+  width: 100%;
+
+  background-color: $color-foreground;
+  border: none;
+  border-radius: 200px;
+  padding: 4px;
 }
 
 .xp {
+  height: 12px;
+  text-align: right;
+  color: $color-foreground;
+  font-weight: 800;
+  font-size: 12px;
+  background-color: $color-accent;
+  border-radius: 200px;
 }
 </style>

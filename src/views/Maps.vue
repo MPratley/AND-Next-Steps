@@ -1,6 +1,5 @@
 <template>
   <div class="maps">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>Look at all the Maps!</h1>
     <img
       src="https://maps.googleapis.com/maps/api/staticmap?center=Aldwych+House,+Aldwych,+London

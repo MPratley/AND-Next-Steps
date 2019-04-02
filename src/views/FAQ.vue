@@ -1,6 +1,5 @@
 <template>
   <div class="faq">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>faq</h1>
     <Button />
   </div>

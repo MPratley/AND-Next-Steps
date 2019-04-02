@@ -1,6 +1,5 @@
 <template>
   <div class="next-steps">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>Next Steps</h1>
     <XP />
   </div>

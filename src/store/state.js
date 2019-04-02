@@ -1,3 +1,3 @@
 export default {
-  xp: 50
+  xp: 80
 };
