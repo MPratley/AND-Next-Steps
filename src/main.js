@@ -3,12 +3,15 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 import "./registerServiceWorker";
+//firebase and gapi
 import VueGAPI from "vue-gapi";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const config = {
   apiKey: "AIzaSyC8z7jhuADsz_FsikCx2xfN8OlQBvzGiBE",
   clientId:
-    "205275658111-ho20gfi8uenlar4s89letdpnt15jilm8.apps.googleusercontent.com",
+    "205275658111-7t2ttcsmui6dd1q6c7oigv4rummde131.apps.googleusercontent.com",
   scope: [
     "email",
     "profile",
@@ -20,6 +23,15 @@ const config = {
   ]
 };
 
+var firebaseConfig = {
+  apiKey: "AIzaSyC8z7jhuADsz_FsikCx2xfN8OlQBvzGiBE",
+  authDomain: "and-next-steps.firebaseapp.com",
+  databaseURL: "https://and-next-steps.firebaseio.com",
+  projectId: "and-next-steps",
+  storageBucket: "and-next-steps.appspot.com",
+  messagingSenderId: "205275658111"
+};
+
 Vue.config.productionTip = false;
 Vue.use(VueGAPI, config);
 
@@ -27,11 +39,24 @@ new Vue({
   router,
   store,
   created() {
+    firebase.initializeApp(firebaseConfig);
     this.$getGapiClient().then(gapi => {
-      this.$store.commit("updateAuthStatus", this.$isAuthenticated);
-      gapi.auth2.getAuthInstance().isSignedIn.listen(boolean => {
-        this.$store.commit("updateAuthStatus", boolean);
-        console.log("sign in status: " + boolean);
+      this.$store.commit(
+        "updateAuthStatus",
+        gapi.auth2.getAuthInstance().isSignedIn.get()
+      );
+      gapi.auth2.getAuthInstance().isSignedIn.listen(isSignedIn => {
+        this.$store.commit("updateAuthStatus", isSignedIn);
+        if (isSignedIn) {
+          var googleUser = gapi.auth2.getAuthInstance().currentUser.get();
+          var id_token = googleUser.getAuthResponse().id_token;
+          var fireCredentials = firebase.auth.GoogleAuthProvider.credential(
+            id_token
+          );
+          firebase.auth().signInAndRetrieveDataWithCredential(fireCredentials);
+        } else {
+          firebase.auth().signOut();
+        }
       });
     });
   },
