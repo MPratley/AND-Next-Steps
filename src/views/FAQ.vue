@@ -10,8 +10,9 @@ import Search from "@/components/Search";
 
 export default {
   name: "faq",
-  components: {
-    Search
+  components: {},
+  created() {
+    this.$store.dispatch("tasks/openDBChannel");
   }
 };
 </script>
