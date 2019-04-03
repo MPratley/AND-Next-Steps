@@ -5,7 +5,7 @@ import store from "./store/index";
 import "./registerServiceWorker";
 //firebase and gapi
 import VueGAPI from "vue-gapi";
-import firebase from "firebase/app";
+import { firebase, initFirebase } from "@/firebase.js";
 import "firebase/auth";
 
 const config = {
@@ -23,15 +23,6 @@ const config = {
   ]
 };
 
-var firebaseConfig = {
-  apiKey: "AIzaSyC8z7jhuADsz_FsikCx2xfN8OlQBvzGiBE",
-  authDomain: "and-next-steps.firebaseapp.com",
-  databaseURL: "https://and-next-steps.firebaseio.com",
-  projectId: "and-next-steps",
-  storageBucket: "and-next-steps.appspot.com",
-  messagingSenderId: "205275658111"
-};
-
 Vue.config.productionTip = false;
 Vue.use(VueGAPI, config);
 
@@ -39,7 +30,7 @@ new Vue({
   router,
   store,
   created() {
-    firebase.initializeApp(firebaseConfig);
+    initFirebase();
     this.$getGapiClient().then(gapi => {
       this.$store.commit(
         "updateAuthStatus",

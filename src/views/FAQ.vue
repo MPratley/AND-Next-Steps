@@ -8,7 +8,10 @@
 <script>
 export default {
   name: "faq",
-  components: {}
+  components: {},
+  created() {
+    this.$store.dispatch("tasks/openDBChannel");
+  }
 };
 </script>
 
