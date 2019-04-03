@@ -23,6 +23,15 @@ const config = {
   ]
 };
 
+var firebaseConfig = {
+  apiKey: "AIzaSyC8z7jhuADsz_FsikCx2xfN8OlQBvzGiBE",
+  authDomain: "and-next-steps.firebaseapp.com",
+  databaseURL: "https://and-next-steps.firebaseio.com",
+  projectId: "and-next-steps",
+  storageBucket: "and-next-steps.appspot.com",
+  messagingSenderId: "205275658111"
+};
+
 Vue.config.productionTip = false;
 Vue.use(VueGAPI, config);
 
@@ -30,8 +39,12 @@ new Vue({
   router,
   store,
   created() {
+    firebase.initializeApp(firebaseConfig);
     this.$getGapiClient().then(gapi => {
-      this.$store.commit("updateAuthStatus", this.$isAuthenticated);
+      this.$store.commit(
+        "updateAuthStatus",
+        gapi.auth2.getAuthInstance().isSignedIn.get()
+      );
       gapi.auth2.getAuthInstance().isSignedIn.listen(isSignedIn => {
         this.$store.commit("updateAuthStatus", isSignedIn);
         if (isSignedIn) {
@@ -40,7 +53,7 @@ new Vue({
           var fireCredentials = firebase.auth.GoogleAuthProvider.credential(
             id_token
           );
-          firebase.auth().signInWithCredential(fireCredentials);
+          firebase.auth().signInAndRetrieveDataWithCredential(fireCredentials);
         } else {
           firebase.auth().signOut();
         }
