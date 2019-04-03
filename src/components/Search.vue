@@ -5,33 +5,41 @@
     <div class="faq-popular">
       <h2>Popular FAQs</h2>
       <ol>
-        <li v-for="item in items">
-          <strong>{{ item.title }}</strong>
-          <p>{{ item.content }}</p>
-        </li>
+          <FAQItem v-for="faq in faqs"
+          :faq="faq" 
+          :key="faq.id"/>
+
+          <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
+          v-bind:faq="faq" 
+          v-bind:key="faq.id">
+          <strong>{{ faq.Question }}</strong>
+          <p>{{ faq.Answer }}</p>
+          </li> -->
       </ol>
     </div>
-    <button class="faq-all">Browse FAQs by Category</button>
+    <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
+    <button class="faq-btn" id="faq-fav">View favourite FAQs</button>
   </div>
 </template>
 
 <script>
 import SearchInput from "./SearchInput";
+import FAQItem from "./FAQItem";
+import { mapState } from 'vuex'
 
 export default {
   name: "search",
   components: {
-    SearchInput
+    SearchInput,
+    FAQItem
   },
-  data() {
-    return {
-      items: [
-        {
-          title: "How did Aydin land PDL?",
-          content: "Pour-over plaid man braid pickled vaporware portland."
-        }
-      ]
-    };
+  computed: {
+    faqs() {
+      return this.$store.state.faqs.data
+    }
+  },
+  created() {
+    this.$store.dispatch("faqs/openDBChannel");
   }
 };
 </script>
@@ -49,15 +57,19 @@ export default {
   width: 80%;
   padding: 1.7em;
   margin: 0.5em 1em 0.5em 0.5em;
+  max-height: 40vh;
+  overflow: scroll;
 }
 
 h2,
-p {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
+p, 
+a,
+.faq-btn {
+  font-family: 'Poppins', sans-serif;
+  /* text-align: center; */
 }
 
-.faq-all {
+.faq-btn {
   background-color: $and-blue;
   color: #ffffff;
   height: 60px;
