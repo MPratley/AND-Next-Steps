@@ -11,9 +11,10 @@ Vue.use(Vuex);
 import { firebase } from "@/firebase.js";
 
 import tasks from "@/store/modules/tasks.js";
+import faqs from "@/store/modules/faqs.js";
 
 // do the magic 🧙🏻‍♂️
-const easyFirestore = VuexEasyFirestore([tasks], {
+const easyFirestore = VuexEasyFirestore([tasks, faqs], {
   logging: true,
   FirebaseDependency: firebase
 });
