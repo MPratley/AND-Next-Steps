@@ -10,8 +10,9 @@ import Button from "@/components/Button.vue";
 
 export default {
   name: "faq",
-  components: {
-    Button
+  components: {},
+  created() {
+    this.$store.dispatch("tasks/openDBChannel");
   }
 };
 </script>
