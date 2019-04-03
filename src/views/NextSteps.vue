@@ -1,14 +1,17 @@
 <template>
   <div class="next-steps">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>Next Steps</h1>
+    <TaskList></TaskList>
   </div>
 </template>
 
 <script>
+import TaskList from "@/components/TaskList.vue";
 export default {
   name: "faq",
-  components: {}
+  components: {
+    TaskList
+  }
 };
 </script>
 
