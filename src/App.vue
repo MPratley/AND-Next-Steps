@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view />
+    {{ msg }}
     <Navbar />
   </div>
 </template>
