@@ -10,8 +10,7 @@ $bottom-nav-action-horizontal-margin: 12px !default;
 $bottom-nav-icon-font-size: 24px !default;
 $bottom-nav-icon-margin-bottom: 4px !default;
 
-$bottom-nav-label-font-size-inactive: 12px !default;
-$bottom-nav-label-font-size-active: 14px !default;
+$bottom-nav-label-font-size: 14px !default;
 $bottom-nav-label-font-family: (
   -apple-system,
   // iOS
@@ -40,12 +39,7 @@ $bottom-nav-label-font-family: (
 $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
   0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
 
-@mixin bottom-nav(
-  $background-color,
-  $active-color,
-  $inactive-color,
-  $hide-inactive-labels: false
-) {
+@mixin bottom-nav($background-color, $active-color, $inactive-color) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,27 +69,15 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
       left: $bottom-nav-action-horizontal-padding;
     }
 
-    @if $hide-inactive-labels {
-      padding: {
-        top: 2 * $bottom-nav-action-vertical-padding;
-        bottom: 2 * $bottom-nav-action-vertical-padding;
-      }
-
-      min-width: $bottom-nav-action-min-width -
-        (4 * $bottom-nav-action-horizontal-padding);
-      max-width: $bottom-nav-action-max-width -
-        (8 * $bottom-nav-action-horizontal-padding);
-    } @else {
-      padding: {
-        top: $bottom-nav-action-vertical-padding;
-        bottom: $bottom-nav-action-vertical-padding;
-      }
-
-      min-width: $bottom-nav-action-min-width -
-        (2 * $bottom-nav-action-horizontal-padding);
-      max-width: $bottom-nav-action-max-width -
-        (2 * $bottom-nav-action-horizontal-padding);
+    padding: {
+      top: $bottom-nav-action-vertical-padding;
+      bottom: $bottom-nav-action-vertical-padding;
     }
+
+    min-width: $bottom-nav-action-min-width -
+      (2 * $bottom-nav-action-horizontal-padding);
+    max-width: $bottom-nav-action-max-width -
+      (2 * $bottom-nav-action-horizontal-padding);
 
     flex: 1 1 auto;
     color: $inactive-color;
@@ -105,17 +87,8 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
 
     &.router-link-exact-active {
       color: $active-color;
-      transform: translate(0,-2px);
-
-      @if $hide-inactive-labels {
-        padding: {
-          bottom: $bottom-nav-action-vertical-padding;
-        }
-
-        min-width: $bottom-nav-action-min-width -
-          (2 * $bottom-nav-action-horizontal-padding);
-        max-width: $bottom-nav-action-max-width -
-          (2 * $bottom-nav-action-horizontal-padding);
+      i {
+        transform: translate(0, -2px);
       }
     }
   }
@@ -131,10 +104,6 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
       right: auto;
     }
 
-    @if $hide-inactive-labels == false {
-      margin-bottom: $bottom-nav-icon-margin-bottom;
-    }
-
     path,
     polygon,
     rect {
@@ -147,31 +116,12 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     }
   }
 
-  .router-link-exact-active i {
-    @if $hide-inactive-labels {
-      margin-bottom: $bottom-nav-icon-margin-bottom;
-    }
-  }
-
   a {
     font-weight: 400;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
-
-    @if $hide-inactive-labels {
-      display: none;
-    } @else {
-      display: block;
-      font-size: $bottom-nav-label-font-size-inactive;
-    }
-  }
-
-  .router-link-exact-active a {
-    font-size: $bottom-nav-label-font-size-active;
-
-    @if $hide-inactive-labels {
-      display: block;
-    }
+    display: block;
+    font-size: $bottom-nav-label-font-size;
   }
 }
