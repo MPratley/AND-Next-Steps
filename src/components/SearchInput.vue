@@ -1,14 +1,49 @@
 <template>
   <div class="search-input">
     <i class="material-icons search-icon">search</i>
-    <input type="text" class="search-box" placeholder="Search or ask us a question">
-    <input type="submit" value="Search" class="searchButton">
+    <input
+      type="text"
+      class="search-box"
+      placeholder="Search or ask us a question"
+      @input="onChange"
+      v-model="search"
+    />
+    <input type="submit" value="Search" class="searchButton" />
   </div>
 </template>
 
 <script>
+// import func from "../../vue-temp/vue-editor-bridge";
 export default {
-  name: "searchinput"
+  name: "SearchInput",
+  data() {
+    return {
+      search: "",
+      results: ""
+    };
+  },
+  props: {
+    faqs: {
+      type: Object
+    }
+  },
+  methods: {
+    onChange: function() {
+      if (this.search.length > 3) {
+        this.filterResult(this.search);
+        console.log(this.search);
+      } else {
+        return;
+      }
+    },
+    filterResult() {
+      console.log(this.faqs);
+      // this.results = this.faqs.filter(faqs =>
+      //   // Object.values(this.faqs).filter(faq => faqs.includes(this.search))
+      // );
+      return this.results;
+    }
+  }
 };
 </script>
 
