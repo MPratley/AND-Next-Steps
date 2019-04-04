@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-if="isAuth" id="app">
+  <div id="app">
+    <div v-if="isAuth" id="view">
       <router-view />
       <Navbar />
     </div>
@@ -28,3 +28,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+html,
+body,
+#app,
+#view,
+#login {
+  height: 100%;
+}
+body {
+  margin: 0px;
+}
+</style>
