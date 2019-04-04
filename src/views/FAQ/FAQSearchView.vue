@@ -8,7 +8,7 @@
         <FAQItem v-for="faq in faqs" :faq="faq" :key="faq.id" />
 
         <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
-          v-bind:faq="faq"
+          v-bind:faq="faq" 
           v-bind:key="faq.id">
           <strong>{{ faq.Question }}</strong>
           <p>{{ faq.Answer }}</p>
@@ -21,9 +21,8 @@
 </template>
 
 <script>
-import SearchInput from "./SearchInput";
-import FAQItem from "./FAQItem";
-// import { mapState } from "vuex";
+import SearchInput from "@/components/FAQSearchInput";
+import FAQItem from "@/components/FAQSearchItem";
 
 export default {
   name: "search",

@@ -1,6 +1,6 @@
 <template>
-  <div id="navbar">
-    <router-link to="/">
+  <div id="TheBottomNavBar">
+    <router-link to="/next-steps">
       <i class="material-icons">view_list</i>
       Next Steps
     </router-link>
@@ -21,13 +21,13 @@
 
 <script>
 export default {
-  name: "navbar"
+  name: "TheBottomNavBar"
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/styles/navbar.scss";
-#navbar {
+#TheBottomNavBar {
   @include bottom-nav($color-background, $color-accent, $color-foreground);
 }
 </style>
