@@ -1,18 +1,17 @@
 <template>
   <div class="faq">
-    <h1>faq</h1>
-    <Button />
+    <!-- <h1>faq</h1> -->
+    <Search />
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
+import Search from "@/components/Search";
 
 export default {
   name: "faq",
-  components: {},
-  created() {
-    this.$store.dispatch("tasks/openDBChannel");
+  components: {
+    Search
   }
 };
 </script>
@@ -20,5 +19,13 @@ export default {
 <style lang="scss">
 h1 {
   color: $color-foreground;
+  text-align: center;
+}
+
+.faq {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

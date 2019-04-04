@@ -1,17 +1,17 @@
 <template>
   <div class="next-steps">
     <h1>Next Steps</h1>
-    <XP />
+    <XpBar />
   </div>
 </template>
 
 <script>
-import XP from "@/components/XpBar.vue";
+import XpBar from "@/components/XpBar.vue";
 
 export default {
-  name: "next-steps",
+  name: "NextSteps",
   components: {
-    XP
+    XpBar
   }
 };
 </script>

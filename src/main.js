@@ -30,7 +30,13 @@ new Vue({
   router,
   store,
   created() {
-    initFirebase();
+    initFirebase().then(() => {
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          this.$store.dispatch("user/openDBChannel").catch(console.error);
+        }
+      });
+    });
     this.$getGapiClient().then(gapi => {
       this.$store.commit(
         "updateAuthStatus",

@@ -1,8 +1,8 @@
 <template>
-  <div class="xpBarDiv">
-    <p>{{ xp }}%</p>
+  <div class="xp-bar-div">
+    <p class="xp-count">{{ xp }}%</p>
     <div class="container">
-      <div :style="{ width: xp + '%' }" class="xp"></div>
+      <div :style="{ width: xp + '%' }" class="xp-bar"></div>
     </div>
   </div>
 </template>
@@ -11,7 +11,7 @@
 import { mapState } from "vuex";
 
 export default {
-  name: "xp_bar",
+  name: "XpBar",
   computed: {
     ...mapState({
       xp: state => state.xp
@@ -21,11 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
-  box-sizing: border-box;
-}
-
-p {
+.xp-count {
   text-align: right;
   margin-bottom: 4px;
 }
@@ -39,7 +35,7 @@ p {
   padding: 4px;
 }
 
-.xp {
+.xp-bar {
   height: 12px;
   text-align: right;
   color: $color-foreground;
