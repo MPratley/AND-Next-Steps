@@ -2,7 +2,7 @@
   <div id="app">
     <div v-if="isAuth" id="view">
       <router-view />
-      <Navbar />
+      <TheBottomNavBar />
     </div>
     <div v-else id="login">
       <Login />
@@ -13,12 +13,12 @@
 <script>
 import { mapState } from "vuex";
 
-import Navbar from "@/components/Navbar.vue";
+import TheBottomNavBar from "@/components/TheBottomNavBar.vue";
 import Login from "@/components/Login.vue";
 
 export default {
   components: {
-    Navbar,
+    TheBottomNavBar,
     Login
   },
   computed: {
