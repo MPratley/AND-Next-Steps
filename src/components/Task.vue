@@ -1,6 +1,7 @@
 <template>
   <div class="taskCard">
     <p>{{ task.name }}</p>
+    <input type="checkbox" v-on:click="manageXp()" />
   </div>
 </template>
 
@@ -8,9 +9,20 @@
 export default {
   name: "Task",
   props: {
-    task: Object
+    task: Object,
+    xp: Number
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: center;
+}
+.checkbox {
+  margin: 12px;
+}
+</style>

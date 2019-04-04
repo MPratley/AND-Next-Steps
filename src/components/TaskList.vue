@@ -1,60 +1,58 @@
 <template>
   <div class="taskList">
     <h1>Task List</h1>
+
+    <!-- <h2>Overdue:</h2> -->
+
     <h2>Due today:</h2>
-    <div class="doToday" v-for="(oneDayTask, index) in oneDayLeft" :key="index">
-      <Task :task="oneDayTask" />
+    <div
+      class="doThisToday"
+      v-for="(task, index) in tasks"
+      :key="index + '- 1DaysLeft'"
+    >
+      <div
+        class="ifThisToday"
+        v-if="task.daysToComplete <= 1 && task.daysToComplete > -1"
+      >
+        <Task :task="task" :xp="xp" />
+      </div>
     </div>
     <h2>Due this week:</h2>
     <div
       class="doThisWeek"
-      v-for="(oneWeekTask, index) in oneWeekLeft"
-      :key="index"
+      v-for="(task, index) in tasks"
+      :key="index + '- 7DaysLeft'"
     >
-      <Task :task="oneWeekTask" />
+      <div
+        class="ifThisWeek"
+        v-if="task.daysToComplete >= 2 && task.daysToComplete <= 7"
+      >
+        <Task :task="task" :xp="xp" />
+      </div>
     </div>
     <h2>Due this month:</h2>
-    <div
-      class="doThisMonth"
-      v-for="(oneMonthTask, index) in oneMonthLeft"
-      :key="index"
-    >
-      <Task :task="oneMonthTask" />
+    <div class="doThisMonth" v-for="(task, index) in tasks" :key="index">
+      <div class="ifToday" v-if="task.daysToComplete >= 8">
+        <Task :task="task" :xp="xp" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Task from "@/components/Task.vue";
-
-let tasks = [];
-
-let oneDayLeft = [];
-let oneWeekLeft = [];
-let oneMonthLeft = [];
-
-for (var i = 0; i < tasks.length; i++) {
-  if (tasks[i].daysToComplete <= 1) {
-    oneDayLeft.push(tasks[i]);
-  } else if (tasks[i].id <= 7 && tasks[i].daysToComplete >= 2) {
-    oneWeekLeft.push(tasks[i]);
-  } else if (tasks[i].id >= 8) {
-    oneMonthLeft.push(tasks[i]);
-  }
-}
+import { mapState } from "vuex";
 
 export default {
   name: "TaskList",
   components: {
     Task
   },
-  beforeMount: function() {
-    this.$state.tasks;
-  },
   computed: {
-    // ...mapState({
-    //   tasks: state => state.tasks
-    // })
+    ...mapState({
+      tasks: state => state.tasks.data,
+      xp: state => state.xp
+    })
   }
 };
 </script>

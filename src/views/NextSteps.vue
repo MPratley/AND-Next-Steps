@@ -8,9 +8,12 @@
 <script>
 import TaskList from "@/components/TaskList.vue";
 export default {
-  name: "faq",
+  name: "NextSteps",
   components: {
     TaskList
+  },
+  created() {
+    this.$store.dispatch("tasks/openDBChannel");
   }
 };
 </script>
