@@ -1,15 +1,13 @@
 <template>
   <div class="search">
     <h2 class="title">How can we help you today?</h2>
-    <SearchInput/>
+    <SearchInput />
     <div class="faq-popular">
       <h2>Popular FAQs</h2>
       <ol>
-          <FAQItem v-for="faq in faqs"
-          :faq="faq" 
-          :key="faq.id"/>
+        <FAQItem v-for="faq in faqs" :faq="faq" :key="faq.id" />
 
-          <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
+        <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
           v-bind:faq="faq" 
           v-bind:key="faq.id">
           <strong>{{ faq.Question }}</strong>
@@ -25,7 +23,6 @@
 <script>
 import SearchInput from "./SearchInput";
 import FAQItem from "./FAQItem";
-import { mapState } from 'vuex'
 
 export default {
   name: "search",
@@ -35,7 +32,7 @@ export default {
   },
   computed: {
     faqs() {
-      return this.$store.state.faqs.data
+      return this.$store.state.faqs.data;
     }
   },
   created() {
@@ -62,10 +59,10 @@ export default {
 }
 
 h2,
-p, 
+p,
 a,
 .faq-btn {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   /* text-align: center; */
 }
 

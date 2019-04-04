@@ -1,8 +1,12 @@
 <template>
   <div class="search-input">
     <i class="material-icons search-icon">search</i>
-    <input type="text" class="search-box" placeholder="Search or ask us a question">
-    <input type="submit" value="Search" class="searchButton">
+    <input
+      type="text"
+      class="search-box"
+      placeholder="Search or ask us a question"
+    />
+    <input type="submit" value="Search" class="searchButton" />
   </div>
 </template>
 
