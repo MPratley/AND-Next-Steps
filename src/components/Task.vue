@@ -1,7 +1,7 @@
 <template>
   <div class="taskCard">
     <p>{{ task.name }}</p>
-    <input type="checkbox" v-on:click="manageXp()" />
+    <input type="checkbox" @click="toggle" v-model="done" />
   </div>
 </template>
 
@@ -11,6 +11,22 @@ export default {
   props: {
     task: Object,
     xp: Number
+  },
+  data() {
+    return {
+      done: false //this.$store.state.user.data.completedTasks.contains(this.task.id)
+    };
+  },
+  methods: {
+    toggle() {
+      console.log(this.done);
+      this.$store.dispatch("user/patch", {
+        completedTasks: [
+          ...this.$store.state.user.data.completedTasks,
+          this.task.id
+        ]
+      });
+    }
   }
 };
 </script>
