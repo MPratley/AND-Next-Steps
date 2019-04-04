@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import SearchInput from "./SearchInput";
-import FAQItem from "./FAQItem";
+import SearchInput from "@/components/FAQSearchInput";
+import FAQItem from "@/components/FAQSearchItem";
 
 export default {
   name: "search",
