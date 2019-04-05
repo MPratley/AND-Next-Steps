@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div v-if="isAuth" id="view">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
       <TheBottomNavBar />
     </div>
     <div v-else id="login">
