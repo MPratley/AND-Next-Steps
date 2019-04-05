@@ -40,9 +40,6 @@ export default {
         }
       }
     }
-  },
-  methods: {
-    // toggle(bool) {}
   }
 };
 </script>

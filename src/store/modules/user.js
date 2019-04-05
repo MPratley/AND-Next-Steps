@@ -6,7 +6,8 @@ const user = {
   namespaced: true, // automatically added
   sync: {
     defaultValues: {
-      completedTasks: []
+      completedTasks: [],
+      xp: 0
     }
   },
 
@@ -16,6 +17,9 @@ const user = {
   getters: {
     getCompletedTasks: state => {
       return state.data.completedTasks;
+    },
+    getXp: state => {
+      return state.data.xp;
     }
   },
   mutations: {},
