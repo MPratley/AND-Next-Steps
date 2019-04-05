@@ -4,16 +4,19 @@
     <input
       type="text"
       class="search-box"
-      placeholder="Search or ask us a question"
+      placeholder="Search or ask us a question..."
       @input="onChange"
       v-model="search"
-    />
-    <input type="submit" value="Search" class="searchButton" />
+    >
+    <input type="submit" value="search" class="searchButton">
   </div>
 </template>
 
 <script>
 // import func from "../../vue-temp/vue-editor-bridge";
+
+import { mapGetters } from "vuex";
+
 export default {
   name: "SearchInput",
   data() {
@@ -30,20 +33,63 @@ export default {
   methods: {
     onChange: function() {
       if (this.search.length > 3) {
-        this.filterResult(this.search);
-        console.log(this.search);
+        // this.filterSearch(this.search);
+        console.log(this.filteredFaqs);
+        // console.log(this.search);
       } else {
         return;
       }
-    },
-    filterResult() {
-      console.log(this.faqs);
-      // this.results = this.faqs.filter(faqs =>
-      //   // Object.values(this.faqs).filter(faq => faqs.includes(this.search))
-      // );
-      return this.results;
     }
+    // filterResult() {
+    //   console.log(this.faqs);
+    //   this.results = this.faqs.filter(faqs =>
+    //     Object.values(this.faqs).filter(faq => faqs.includes(this.search))
+    //   );
+    //   return this.results;
+    // }
+  },
+  computed: {
+    filteredFaqs() {
+      try {
+        let a = this.$store.getters.getFilteredFaqs;
+        console.log(a);
+        return a;
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    searchWord: {
+      get() {
+        return this.$store.state.searchWord;
+      },
+      set() {
+        console.log(search);
+        this.$store.dispatch("FILTERED_FAQS", search);
+      }
+    }
+
+    // faqQuestions() {
+    //   let newFaqs = JSON.parse(JSON.stringify(this.faqs));
+    //   newFaqs = { ...newFaqs };
+    //   console.log(Object.values(...newFaqs));
+    //   console.log(Object.values(...newFaqs).includes(this.search));
+    // },
+    // ...mapGetters(["getFAQByQuestion"])
   }
+
+  // getFAQByQuestion() {
+  //   return this.$store.getters.getFAQByQuestion(this.search);
+  // }
+  //   filterSearch() {
+  //     return this.faqs.filter(faq => {
+  //       console.log(faq.name, this.search);
+  //       return (
+  //         !this.search ||
+  //         faq.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+  //       );
+  //     });
+  //   }
+  // }
 };
 </script>
 

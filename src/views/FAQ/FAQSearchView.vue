@@ -1,22 +1,22 @@
 <template>
   <div class="search">
-    <h2 class="title">How can we help you today?</h2>
-    <SearchInput :faqs="faqs" />
+    <h2 class="title">Hi, how can we help you today?</h2>
+    <SearchInput :faqs="faqs"/>
     <div class="faq-popular">
       <h2>Popular FAQs</h2>
       <ol>
-        <FAQItem v-for="faq in faqs" :faq="faq" :key="faq.id" />
+        <FAQItem v-for="faq in faqs" :faq="faq" :key="faq.id"/>
 
         <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
-          v-bind:faq="faq" 
+          v-bind:faq="faq"
           v-bind:key="faq.id">
           <strong>{{ faq.Question }}</strong>
           <p>{{ faq.Answer }}</p>
         </li>-->
       </ol>
     </div>
-    <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
-    <button class="faq-btn" id="faq-fav">View favourite FAQs</button>
+    <!-- <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
+    <button class="faq-btn" id="faq-fav">View favourite FAQs</button>-->
   </div>
 </template>
 
