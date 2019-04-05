@@ -1,31 +1,44 @@
 <template>
   <div class="taskCard">
     <p>{{ task.name }}</p>
-    <input type="checkbox" @click="toggle" v-model="done" />
+    <input type="checkbox" @click="toggle" v-model="isCompleted" />
+    <!-- <p>{{isCompleted}}</p> -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Task",
   props: {
-    task: Object,
-    xp: Number
+    task: Object
   },
   data() {
-    return {
-      done: false //this.$store.state.user.data.completedTasks.contains(this.task.id)
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(["user/getCompletedTasks"]),
+    isCompleted() {
+      try {
+        return this["user/getCompletedTasks"].includes(this.task.id);
+      } catch (err) {
+        return false;
+      }
+    }
   },
   methods: {
     toggle() {
-      console.log(this.done);
-      this.$store.dispatch("user/patch", {
-        completedTasks: [
-          ...this.$store.state.user.data.completedTasks,
-          this.task.id
-        ]
-      });
+      if (!this.isCompleted) {
+        this.$store.dispatch("user/patch", {
+          completedTasks: [...this["user/getCompletedTasks"], this.task.id]
+        });
+      } else {
+        var cTasks = this["user/getCompletedTasks"];
+        cTasks.splice(cTasks.indexOf(this.task.id), 1);
+        this.$store.dispatch("user/patch", {
+          completedTasks: cTasks
+        });
+      }
     }
   }
 };

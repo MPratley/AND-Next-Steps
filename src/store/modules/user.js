@@ -13,7 +13,11 @@ const user = {
   // this object is your store module (will be added as '/myModule')
   // you can also add state/getters/mutations/actions
   state: {},
-  getters: {},
+  getters: {
+    getCompletedTasks: state => {
+      return state.data.completedTasks;
+    }
+  },
   mutations: {},
   actions: {}
 };
