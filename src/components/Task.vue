@@ -1,7 +1,7 @@
 <template>
   <div class="taskCard">
     <p>{{ task.name }}</p>
-    <input type="checkbox" @click="toggle" v-model="isCompleted" />
+    <input type="checkbox" v-model="isCompleted" />
     <!-- <p>{{isCompleted}}</p> -->
   </div>
 </template>
@@ -18,28 +18,31 @@ export default {
   },
   computed: {
     ...mapGetters(["user/getCompletedTasks"]),
-    isCompleted() {
-      try {
-        return this["user/getCompletedTasks"].includes(this.task.id);
-      } catch (err) {
-        return false;
+    isCompleted: {
+      get() {
+        try {
+          return this["user/getCompletedTasks"].includes(this.task.id);
+        } catch (error) {
+          return false;
+        }
+      },
+      set(add) {
+        if (add) {
+          this.$store.dispatch("user/patch", {
+            completedTasks: [...this["user/getCompletedTasks"], this.task.id]
+          });
+        } else {
+          var cTasks = this["user/getCompletedTasks"];
+          cTasks.splice(cTasks.indexOf(this.task.id), 1);
+          this.$store.dispatch("user/patch", {
+            completedTasks: cTasks
+          });
+        }
       }
     }
   },
   methods: {
-    toggle() {
-      if (!this.isCompleted) {
-        this.$store.dispatch("user/patch", {
-          completedTasks: [...this["user/getCompletedTasks"], this.task.id]
-        });
-      } else {
-        var cTasks = this["user/getCompletedTasks"];
-        cTasks.splice(cTasks.indexOf(this.task.id), 1);
-        this.$store.dispatch("user/patch", {
-          completedTasks: cTasks
-        });
-      }
-    }
+    // toggle(bool) {}
   }
 };
 </script>
