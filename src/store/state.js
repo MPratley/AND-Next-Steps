@@ -1,4 +1,3 @@
 export default {
-  isAuth: undefined,
-  xp: 0
+  isAuth: undefined
 };
