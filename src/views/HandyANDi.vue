@@ -1,13 +1,13 @@
 <template>
   <div class="handy-andi">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <h1>Handy ANDi</h1>
-    <div v-for="user in users" :key="user.id">
+    <h1>Your ANDi</h1>
+    <div id="AddNewAndi" @click="warn"></div>
+    <!-- <div v-for="user in users" :key="user.id">
       <p>{{ user.primaryEmail }}</p>
       <div class="ANDi">
         <img class="thumbnail" :src="user.thumbnailPhotoUrl" />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -32,6 +32,11 @@ export default {
           console.log(data.result.users);
         });
     });
+  },
+  methods: {
+    warn() {
+      alert("hjnhuknhuiknhikmnhu");
+    }
   }
 };
 </script>
@@ -42,6 +47,15 @@ export default {
 }
 h1 {
   color: $color-foreground;
+}
+#AddNewAndi {
+  // background-color: grey;
+  // border-radius: 50%;
+  border: 2px dashed grey;
+  // box-shadow: 0 0 0 4px gray;
+  width: 90%;
+  margin: 0 auto;
+  height: 100px;
 }
 .ANDi {
   .thumbnail {

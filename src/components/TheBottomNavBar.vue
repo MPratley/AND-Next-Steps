@@ -9,8 +9,8 @@
       FAQ
     </router-link>
     <router-link to="/handy-andi">
-      <i class="material-icons">account_box</i>
-      Your ANDi
+      <i class="material-icons">supervisor_account</i>
+      Handy ANDi
     </router-link>
     <!-- <router-link to="/map">
       <i class="material-icons">map</i>
