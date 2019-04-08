@@ -15,12 +15,10 @@ const user = {
   // you can also add state/getters/mutations/actions
   state: {},
   getters: {
-    getCompletedTasks: state => {
-      return state.data.completedTasks;
-    },
-    getXp: state => {
-      return state.data.xp;
-    }
+    getCompletedTasks: state => state.data.completedTasks
+    // getXp: state => {
+    //   return state.data.completedTasks.length;
+    // }
   },
   mutations: {},
   actions: {}

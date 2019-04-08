@@ -14,7 +14,7 @@
         class="ifThisToday"
         v-if="task.daysToComplete <= 1 && task.daysToComplete > -1"
       >
-        <Task :task="task" :xp="xp" />
+        <Task :task="task" />
       </div>
     </div>
     <h2>Due this week:</h2>
@@ -27,13 +27,13 @@
         class="ifThisWeek"
         v-if="task.daysToComplete >= 2 && task.daysToComplete <= 7"
       >
-        <Task :task="task" :xp="xp" />
+        <Task :task="task" />
       </div>
     </div>
     <h2>Due this month:</h2>
     <div class="doThisMonth" v-for="(task, index) in tasks" :key="index">
       <div class="ifToday" v-if="task.daysToComplete >= 8">
-        <Task :task="task" :xp="xp" />
+        <Task :task="task" />
       </div>
     </div>
   </div>
@@ -50,11 +50,14 @@ export default {
   },
   computed: {
     ...mapState({
-      tasks: state => state.tasks.data,
-      xp: state => state.xp
+      tasks: state => state.tasks.data
     })
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.taskList {
+  margin-bottom: 54px;
+}
+</style>
