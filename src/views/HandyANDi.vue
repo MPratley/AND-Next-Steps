@@ -3,8 +3,10 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <h1>Handy ANDi</h1>
     <div v-for="user in users" :key="user.id">
-      <img :src="user.thumbnailPhotoUrl" />
-      {{ user.primaryEmail }}
+      <p>{{ user.primaryEmail }}</p>
+      <div class="ANDi">
+        <img class="thumbnail" :src="user.thumbnailPhotoUrl" />
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +37,29 @@ export default {
 </script>
 
 <style lang="scss">
+.handy-andi {
+  text-align: center;
+}
 h1 {
   color: $color-foreground;
+}
+.ANDi {
+  .thumbnail {
+    height: 100%;
+  }
+  text-align: left;
+  background: #fff;
+  border-radius: 2px;
+  width: 80%;
+  height: 110px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(124, 124, 124, 0.25),
+      0 10px 10px rgba(124, 124, 124, 0.22);
+  }
 }
 </style>
