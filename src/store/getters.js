@@ -1,5 +1,4 @@
 export default {
-  getFilteredFaqs: state => console.log(state.filteredFaqs),
-
-  getSearchWord: state => state.searchWord
+  getFaqs: state => state.faqs.data,
+  getFilteredFaqs: state => state.filteredFaqs
 };

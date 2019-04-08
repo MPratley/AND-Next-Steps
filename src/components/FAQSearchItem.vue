@@ -1,10 +1,12 @@
 <template>
   <div>
     <!-- <p><strong>{{ faq.Question }}</strong></p> -->
-    <strong><a @click="open = !open" v-text="faq.Question"></a></strong>
+    <strong><a @click="open = !open"
+v-text="faq.Question"
+/></strong>
     <div class="faq-answer">
       <ul v-show="open">
-        <p v-text="faq.Answer"></p>
+        <p v-text="faq.Answer" />
       </ul>
     </div>
   </div>
@@ -13,15 +15,15 @@
 <script>
 export default {
   name: "FAQItem",
-  data: function() {
-    return {
-      open: false
-    };
-  },
   props: {
     faq: {
       type: Object
     }
+  },
+  data: function() {
+    return {
+      open: false
+    };
   }
 };
 </script>

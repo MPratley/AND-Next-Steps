@@ -1,18 +1,14 @@
 <template>
   <div class="search">
-    <h2 class="title">Hi, how can we help you today?</h2>
-    <SearchInput :faqs="faqs"/>
+    <h2 class="title">
+      Hi, how can we help you today?
+    </h2>
+    <SearchInput :faqs="faqs" />
     <div class="faq-popular">
       <h2>Popular FAQs</h2>
       <ol>
-        <FAQItem v-for="faq in faqs" :faq="faq" :key="faq.id"/>
-
-        <!-- <li vi-if="faq-data" v-for="(faq, index) in faqs.data"
-          v-bind:faq="faq"
-          v-bind:key="faq.id">
-          <strong>{{ faq.Question }}</strong>
-          <p>{{ faq.Answer }}</p>
-        </li>-->
+        <FAQItem v-for="faq in faqs"
+:key="faq.id" :faq="faq" />
       </ol>
     </div>
     <!-- <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
@@ -25,7 +21,7 @@ import SearchInput from "@/components/FAQSearchInput";
 import FAQItem from "@/components/FAQSearchItem";
 
 export default {
-  name: "search",
+  name: "Search",
   components: {
     SearchInput,
     FAQItem
