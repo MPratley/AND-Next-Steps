@@ -6,7 +6,8 @@ const user = {
   namespaced: true, // automatically added
   sync: {
     defaultValues: {
-      completedTasks: []
+      completedTasks: [],
+      handyAndi: []
     }
   },
 
