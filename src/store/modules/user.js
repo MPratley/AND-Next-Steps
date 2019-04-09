@@ -13,7 +13,9 @@ const user = {
   // this object is your store module (will be added as '/myModule')
   // you can also add state/getters/mutations/actions
   state: {},
-  getters: {},
+  getters: {
+    getHandyAndi: state => state.data.handyAndi
+  },
   mutations: {},
   actions: {}
 };
