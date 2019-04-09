@@ -8,13 +8,11 @@
       placeholder="Search or ask us a question..."
       @input="onChange"
     />
-    <input type="submit" value="search" class="searchButton" />
+    <!-- <input type="submit" value="search" class="searchButton"> -->
   </div>
 </template>
 
 <script>
-// import func from "../../vue-temp/vue-editor-bridge";
-
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -37,9 +35,10 @@ export default {
   methods: {
     onChange: function() {
       if (this.search.length > 3) {
-        this.$store.dispatch("changeSearch", this.search);
+        this.$store.dispatch("changeSearch", this.search.toLowerCase());
         this.$store.dispatch("searchData");
       } else {
+        this.$store.dispatch("resetSearch");
         return;
       }
     },

@@ -1,34 +1,34 @@
 <template>
   <div class="search">
-    <h2 class="title">
-      Hi, how can we help you today?
-    </h2>
-    <SearchInput :faqs="faqs" />
-    <div class="faq-popular">
-      <h2>Popular FAQs</h2>
-      <ol>
-        <FAQSearchItem v-for="faq in faqs" :key="faq.id" :faq="faq" />
-      </ol>
+    <h2 class="title">Hi, how can we help you today?</h2>
+    <!-- <SearchInput :faqs="faqs"/> -->
+    <div class="faq-search-results" v-if="getSearchTerm !== ''">
+      <h2>Results for "{{ getSearchTerm }}"</h2>
+      <FAQSearchItem v-for="faq in getFilteredFaqs" :key="faq.id" :faq="faq" />
     </div>
-    <!-- <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
-    <button class="faq-btn" id="faq-fav">View favourite FAQs</button>-->
+    <div class="faq-popular" v-else>
+      <h2>Popular FAQs</h2>
+      <FAQSearchItem v-for="faq in faqs" :key="faq.id" :faq="faq" />
+    </div>
   </div>
 </template>
 
 <script>
-import SearchInput from "@/components/FAQSearchInput";
 import FAQSearchItem from "@/components/FAQSearchItem";
+
+import { mapGetters } from "vuex";
 
 export default {
   name: "Search",
   components: {
-    SearchInput,
     FAQSearchItem
   },
   computed: {
     faqs() {
       return this.$store.state.faqs.data;
-    }
+    },
+    // mix the getters into computed with object spread operator
+    ...mapGetters(["getSearchTerm", "getFilteredFaqs", "getFaqs"])
   },
   created() {
     this.$store.dispatch("faqs/openDBChannel");
@@ -46,7 +46,6 @@ export default {
   flex-direction: column;
   border: 0.1em solid lightgray;
   border-radius: 7px;
-  width: 80%;
   padding: 1.7em;
   margin: 0.5em 1em 0.5em 0.5em;
   max-height: 40vh;
@@ -63,6 +62,10 @@ a,
 
 .title {
   text-align: center;
+}
+
+strong {
+  color: $and-blue;
 }
 
 .faq-btn {
