@@ -7,7 +7,8 @@ const user = {
   sync: {
     defaultValues: {
       completedTasks: [],
-      handyAndi: []
+      handyAndi: [],
+      xp: 0
     }
   },
 
@@ -15,7 +16,11 @@ const user = {
   // you can also add state/getters/mutations/actions
   state: {},
   getters: {
-    getHandyAndi: state => state.data.handyAndi
+    getHandyAndi: state => state.data.handyAndi,
+    getCompletedTasks: state => state.data.completedTasks
+    // getXp: state => {
+    //   return state.data.completedTasks.length;
+    // }
   },
   mutations: {},
   actions: {}
