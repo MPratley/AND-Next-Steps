@@ -1,7 +1,6 @@
 <template>
   <div class="next-steps">
-    <h1>Next Steps</h1>
-    <h2>Your Progress</h2>
+    <UserHeader></UserHeader>
     <XpBar></XpBar>
     <TaskList></TaskList>
   </div>
@@ -10,12 +9,14 @@
 <script>
 import TaskList from "@/components/TaskList.vue";
 import XpBar from "@/components/XpBar.vue";
+import UserHeader from "@/components/UserHeaderBar.vue";
 
 export default {
   name: "NextSteps",
   components: {
     TaskList,
-    XpBar
+    XpBar,
+    UserHeader
   },
   created() {
     this.$store.dispatch("tasks/openDBChannel");

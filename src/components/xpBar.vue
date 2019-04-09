@@ -1,6 +1,5 @@
 <template>
   <div class="xpBarDiv">
-    <p class="xpCount">{{ getXp }}%</p>
     <div class="container">
       <div :style="{ width: getXp + '%' }" class="xpBar"></div>
     </div>

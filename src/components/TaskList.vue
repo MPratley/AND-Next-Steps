@@ -1,7 +1,5 @@
 <template>
   <div class="taskList">
-    <h1>Task List</h1>
-
     <!-- <h2>Overdue:</h2> -->
 
     <h2>Due today:</h2>

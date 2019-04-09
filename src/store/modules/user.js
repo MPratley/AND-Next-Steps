@@ -16,9 +16,6 @@ const user = {
   state: {},
   getters: {
     getCompletedTasks: state => state.data.completedTasks
-    // getXp: state => {
-    //   return state.data.completedTasks.length;
-    // }
   },
   mutations: {},
   actions: {}
