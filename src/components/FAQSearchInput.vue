@@ -7,15 +7,15 @@
       class="search-box"
       placeholder="Search or ask us a question..."
       @input="onChange"
-    >
-    <input type="submit" value="search" class="searchButton">
+    />
+    <input type="submit" value="search" class="searchButton" />
   </div>
 </template>
 
 <script>
 // import func from "../../vue-temp/vue-editor-bridge";
 
-import { mapGetters, mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "SearchInput",

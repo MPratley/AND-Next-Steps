@@ -7,8 +7,7 @@
     <div class="faq-popular">
       <h2>Popular FAQs</h2>
       <ol>
-        <FAQItem v-for="faq in faqs"
-:key="faq.id" :faq="faq" />
+        <FAQSearchItem v-for="faq in faqs" :key="faq.id" :faq="faq" />
       </ol>
     </div>
     <!-- <button class="faq-btn" id="faq-all">Browse FAQs by Category</button>
@@ -18,13 +17,13 @@
 
 <script>
 import SearchInput from "@/components/FAQSearchInput";
-import FAQItem from "@/components/FAQSearchItem";
+import FAQSearchItem from "@/components/FAQSearchItem";
 
 export default {
   name: "Search",
   components: {
     SearchInput,
-    FAQItem
+    FAQSearchItem
   },
   computed: {
     faqs() {

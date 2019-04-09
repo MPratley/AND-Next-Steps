@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="faq-search-item">
     <!-- <p><strong>{{ faq.Question }}</strong></p> -->
-    <strong><a @click="open = !open"
-v-text="faq.Question"
-/></strong>
-    <div class="faq-answer">
-      <ul v-show="open">
-        <p v-text="faq.Answer" />
+    <strong>
+      <a @click="open = !open" v-text="faq.Question" />
+    </strong>
+    <div class="faq-question-and-answer">
+      <ul v-show="open" class="faq-answer">
+        <div v-text="faq.Answer" />
       </ul>
     </div>
   </div>
@@ -14,7 +14,7 @@ v-text="faq.Question"
 
 <script>
 export default {
-  name: "FAQItem",
+  name: "FAQSearchItem",
   props: {
     faq: {
       type: Object
@@ -29,6 +29,17 @@ export default {
 </script>
 
 <style lang="scss">
+.faq-search-item {
+  background: #e5e5e5;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.2em;
+}
+
+.faq-answer {
+  padding: 0 18px;
+  overflow: hidden;
+}
+
 a {
   display: block;
   cursor: pointer;
