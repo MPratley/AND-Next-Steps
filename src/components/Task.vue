@@ -1,8 +1,9 @@
 <template>
   <div class="taskCard">
-    <p>{{ task.name }}</p>
-    <input type="checkbox" v-model="isCompleted" />
-    <!-- <p>{{isCompleted}}</p> -->
+    <label class="label" :for="task.id" :class="{ done: isCompleted }">{{
+      task.name
+    }}</label>
+    <input type="checkbox" :id="task.id" v-model="isCompleted" />
   </div>
 </template>
 
@@ -51,7 +52,14 @@ export default {
   align-items: baseline;
   align-content: center;
 }
-.checkbox {
+
+label {
+  font-size: 16px;
   margin: 12px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: grey;
 }
 </style>

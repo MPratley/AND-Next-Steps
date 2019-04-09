@@ -1,7 +1,5 @@
 <template>
   <div class="next-steps">
-    <h1>Next Steps</h1>
-    <h2>Your Progress</h2>
     <XpBar></XpBar>
     <TaskList></TaskList>
   </div>
