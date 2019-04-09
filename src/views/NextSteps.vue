@@ -9,7 +9,7 @@
 
 <script>
 import TaskList from "@/components/TaskList.vue";
-import XpBar from "@/components/XpBar.vue";
+import XpBar from "@/components/NextStepsHeaderXp.vue";
 
 export default {
   name: "NextSteps",
