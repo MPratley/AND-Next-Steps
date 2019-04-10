@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material/card": "^1.1.1",
+    "@material/fab": "^1.1.1",
     "core-js": "^2.6.5",
     "firebase": "^5.9.2",
     "gh-pages": "^2.0.1",

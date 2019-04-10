@@ -1,7 +1,17 @@
 <template>
-  <div class="mdc-card">
-    <div class="mdc-card__media mdc-card__media--16-9">
-      <h2 class="mdc-card__media-content">{{ gapiAndi.name.fullName }}</h2>
+  <div class="mdc-card andi-card">
+    <div
+      v-if="gapiAndi"
+      class="mdc-card__media mdc-card__media--square andi-image"
+      :style="{ 'background-image': 'url(' + gapiAndi.thumbnailPhotoUrl + ')' }"
+    ></div>
+    <div v-else class="mdc-card__media mdc-card__media--square andi-image">
+      loading
+    </div>
+    <div class="andi-textblock">
+      <h2>{{ gapiAndi.name.fullName }}</h2>
+      <p>{{ andi.relation }}</p>
+      <!-- <p>{{gapiAndi.thumbnailPhotoUrl}}</p> -->
     </div>
   </div>
   <!-- <p>{{ andi.relation }}</p>
@@ -43,23 +53,16 @@ export default {
 <style lang="scss" scoped>
 @import "~@material/card/mdc-card";
 
-// #listItem {
-//   .thumbnail {
-//     height: 100%;
-//   }
-//   text-align: left;
-//   background: #fff;
-//   border-radius: 2px;
-//   width: 80%;
-//   height: 110px;
-//   display: block;
-//   margin: 1rem;
-//   position: relative;
-//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-//   transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
-//   &:hover {
-//     box-shadow: 0 14px 28px rgba(124, 124, 124, 0.25),
-//       0 10px 10px rgba(124, 124, 124, 0.22);
-//   }
-// }
+.andi-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.andi-image {
+  width: 100px;
+}
+
+.andi-textblock {
+  padding: 1rem;
+}
 </style>
