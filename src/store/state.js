@@ -1,5 +1,6 @@
 export default {
   isAuth: undefined,
   searchTerm: "",
-  filteredFaqs: []
+  filteredFaqs: [],
+  favouriteFaqs: []
 };

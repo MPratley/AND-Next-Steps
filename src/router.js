@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import FAQ from "./views/FAQ.vue";
 import FAQSearchView from "./views/FAQ/FAQSearchView.vue";
-import FAQCatagoryView from "./views/FAQ/FAQCatagoryView.vue";
+import FAQCategoryView from "./views/FAQ/FAQCategoryView.vue";
 import FAQFavouriteView from "./views/FAQ/FAQFavouriteView.vue";
 import NextSteps from "./views/NextSteps.vue";
 import HandyANDi from "./views/HandyANDi.vue";
@@ -27,17 +27,17 @@ export default new Router({
       component: FAQ,
       children: [
         {
-          path: "search",
+          path: "/faq/search",
           name: "search",
           component: FAQSearchView
         },
         {
-          path: "catagory",
-          name: "catagory",
-          component: FAQCatagoryView
+          path: "/faq/category",
+          name: "category",
+          component: FAQCategoryView
         },
         {
-          path: "favourites",
+          path: "/faq/favourites",
           name: "favourites",
           component: FAQFavouriteView
         }

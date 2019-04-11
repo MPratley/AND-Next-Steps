@@ -9,9 +9,12 @@
           v-text="faq.Question"
         ></a>
       </strong>
-      <i class="material-icons faq-icon" v-if="!open">keyboard_arrow_down</i>
-      <i class="material-icons faq-icon" v-else>expand_less</i>
-      <i class="material-icons faq-icon">star_rate</i>
+    </div>
+    <div class="faq-icon">
+      <i class="material-icons" v-if="!open">keyboard_arrow_down</i>
+      <i class="material-icons" v-else>expand_less</i>
+      <i class="material-icons" v-if="starred" @click="addToFavourites">star</i>
+      <i class="material-icons" @click="addToFavourites" v-else>star_border</i>
     </div>
     <div v-show="open" class="faq-answer" v-text="faq.Answer" />
   </div>
@@ -27,15 +30,22 @@ export default {
   },
   data: function() {
     return {
-      open: false
+      open: false,
+      starred: false
     };
+  },
+  methods: {
+    addToFavourites: function() {
+      this.starred = !this.starred;
+      this.$store.dispatch("addToFavourites", this.faq);
+    }
   }
 };
 </script>
 
 <style lang="scss">
 .faq-question {
-  display: flex;
+  display: inline-flex;
 }
 
 .faq-question-text {

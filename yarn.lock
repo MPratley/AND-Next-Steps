@@ -10386,7 +10386,7 @@ vue-loader@^15.6.4:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.0.1:
+vue-router@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.3.tgz#370ca607475c45a1cfab2d9d2ac846feab1c534c"
   integrity sha512-62rB6GjJuyklnLL+yKST469yCYj93SXEn8rpYjxgLwv0aH/Fd6OApD8Hgi9RlraZ1OOwv3jPQvZTtf1GixYW+g==
@@ -10399,7 +10399,7 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.21:
+vue-template-compiler@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
   integrity sha512-jVZkw4/I/HT5ZMvRnhv78okGusqe0+qH2A0Em0Cp8aq78+NK9TII263CDVz2QXZsIT+yyV/gZc/j/vlwa+Epyg==

@@ -12,7 +12,7 @@
 
 <script>
 import { mapState } from "vuex";
-
+import "keen-ui/src/bootstrap";
 import TheBottomNavBar from "@/components/TheBottomNavBar.vue";
 import Login from "@/components/Login.vue";
 

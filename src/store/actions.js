@@ -13,5 +13,8 @@ export default {
   },
   resetSearch({ commit }) {
     commit("RESET_SEARCH_TERM");
+  },
+  addToFavourites({ commit }, faq) {
+    commit("ADD_TO_FAVOURITES", faq);
   }
 };

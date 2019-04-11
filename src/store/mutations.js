@@ -10,5 +10,8 @@ export default {
   },
   RESET_SEARCH_TERM(state) {
     state.searchTerm = "";
+  },
+  ADD_TO_FAVOURITES(state, faq) {
+    state.favouriteFaqs.push(faq);
   }
 };
