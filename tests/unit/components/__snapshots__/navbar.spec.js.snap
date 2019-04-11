@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheBottomNavBar should match the snapshot 1`] = `
+<div
+  id="TheBottomNavBar"
+>
+  <router-link
+    to="/next-steps"
+  >
+    <i
+      class="material-icons"
+    >
+      view_list
+    </i>
+    
+    Next Steps
+  
+  </router-link>
+   
+  <router-link
+    to="/faq"
+  >
+    <i
+      class="material-icons"
+    >
+      question_answer
+    </i>
+    
+    FAQ
+  
+  </router-link>
+   
+  <router-link
+    to="/handy-andi"
+  >
+    <i
+      class="material-icons"
+    >
+      account_box
+    </i>
+    
+    Your ANDi
+  
+  </router-link>
+</div>
+`;
