@@ -51,8 +51,7 @@ export default {
 .search-input {
   display: flex;
   position: relative;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  color: #ffffff;
   overflow: hidden;
   margin: 0.5em 1em 0.5em 0.5em;
 }

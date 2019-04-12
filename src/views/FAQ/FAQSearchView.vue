@@ -1,13 +1,12 @@
 <template>
   <div class="search">
-    <h2 class="title">Hi, how can we help you today?</h2>
-    <!-- <SearchInput :faqs="faqs"/> -->
+    <!-- <h2 class="faq-title">Hi, how can we help you today?</h2> -->
     <div class="faq-search-results" v-if="getSearchTerm !== ''">
       <h2>Results for "{{ getSearchTerm }}"</h2>
       <FAQSearchItem v-for="faq in getFilteredFaqs" :key="faq.id" :faq="faq" />
     </div>
     <div class="faq-popular" v-else>
-      <h2>Popular FAQs</h2>
+      <h2 class="title">Popular Questions</h2>
       <FAQSearchItem v-for="faq in faqs" :key="faq.id" :faq="faq" />
     </div>
   </div>
@@ -15,7 +14,6 @@
 
 <script>
 import FAQSearchItem from "@/components/FAQSearchItem";
-
 import { mapGetters } from "vuex";
 
 export default {
@@ -38,18 +36,17 @@ export default {
 
 <style lang="scss">
 .search {
-  justify-content: center;
+  overflow: auto;
 }
 
-.faq-popular {
+.faq-popular,
+.faq-search-results {
   display: flex;
   flex-direction: column;
-  border: 0.1em solid lightgray;
-  border-radius: 7px;
-  padding: 1.7em;
+  padding: 0.1em;
   margin: 0.5em 1em 0.5em 0.5em;
-  max-height: 40vh;
-  overflow: scroll;
+  max-height: 70vh;
+  /* overflow: auto; */
 }
 
 h2,
@@ -57,11 +54,12 @@ p,
 a,
 .faq-btn {
   font-family: "Poppins", sans-serif;
-  // text-align: center;
 }
 
-.title {
+.faq-title {
+  color: $and-blue;
   text-align: center;
+  max-height: 9vh;
 }
 
 strong {
