@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div v-if="isAuth" id="view">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
       <TheBottomNavBar />
     </div>
     <div v-else id="login">
@@ -12,7 +14,6 @@
 
 <script>
 import { mapState } from "vuex";
-
 import TheBottomNavBar from "@/components/TheBottomNavBar.vue";
 import Login from "@/components/Login.vue";
 
@@ -38,6 +39,6 @@ body,
   height: 100%;
 }
 body {
-  margin: 0px;
+  margin: 12px;
 }
 </style>

@@ -6,14 +6,20 @@ const user = {
   namespaced: true, // automatically added
   sync: {
     defaultValues: {
-      completedTasks: []
+      completedTasks: [],
+      xp: 0
     }
   },
 
   // this object is your store module (will be added as '/myModule')
   // you can also add state/getters/mutations/actions
   state: {},
-  getters: {},
+  getters: {
+    getCompletedTasks: state => state.data.completedTasks
+    // getXp: state => {
+    //   return state.data.completedTasks.length;
+    // }
+  },
   mutations: {},
   actions: {}
 };
