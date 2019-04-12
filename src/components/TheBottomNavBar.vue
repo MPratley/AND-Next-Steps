@@ -1,6 +1,6 @@
 <template>
   <div id="TheBottomNavBar">
-    <router-link to="/">
+    <router-link to="/next-steps">
       <i class="material-icons">view_list</i>
       Next Steps
     </router-link>
