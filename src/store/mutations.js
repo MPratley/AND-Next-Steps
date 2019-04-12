@@ -13,5 +13,8 @@ export default {
   },
   ADD_TO_FAVOURITES(state, faq) {
     state.favouriteFaqs.push(faq);
+  },
+  REMOVE_FROM_FAVOURITES(state, faq) {
+    state.favouriteFaqs.splice(state.favouriteFaqs.indexOf(faq), 1);
   }
 };

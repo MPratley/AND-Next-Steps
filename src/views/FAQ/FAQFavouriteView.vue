@@ -1,27 +1,29 @@
 <template>
-  <div class="favourite-box">
-    <p>Hi from FAQFavouriteView</p>
-    <div v-for="faq in getFavouriteFaqs" :key="faq.Question">
-      <p>{{ faq.Question }}</p>
-    </div>
+  <div class="favourite">
+    <h2 class="title">Your starred questions</h2>
+    <FAQFavouriteItem
+      v-for="faq in getFavouriteFaqs"
+      :key="faq.Question"
+      :faq="faq"
+      @click="removeFromFavourites"
+    />
   </div>
 </template>
 
 <script>
-// import FAQSearchItem from "@/components/FAQSearchItem";
-import { mapGetters } from "vuex";
+import FAQFavouriteItem from "@/components/FAQFavouriteItem";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "FAQFavouriteView",
   components: {
-    // FAQSearchItem
+    FAQFavouriteItem
   },
   computed: {
-    faqs() {
-      return this.$store.state.faqs.data;
-    },
-    // mix the getters into computed with object spread operator
     ...mapGetters(["getFavouriteFaqs"])
+  },
+  methods: {
+    ...mapActions(["removeFromFavourites"])
   }
 };
 </script>
@@ -30,5 +32,10 @@ export default {
 .favourite-box {
   height: 400px;
   width: 400px;
+}
+
+.title {
+  color: $and-blue;
+  text-align: center;
 }
 </style>

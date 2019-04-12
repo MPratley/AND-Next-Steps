@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <h2 class="faq-title">Hi, how can we help you today?</h2>
+    <!-- <h2 class="faq-title">Hi, how can we help you today?</h2> -->
     <div class="faq-search-results" v-if="getSearchTerm !== ''">
       <h2>Results for "{{ getSearchTerm }}"</h2>
       <FAQSearchItem v-for="faq in getFilteredFaqs" :key="faq.id" :faq="faq" />
@@ -14,7 +14,6 @@
 
 <script>
 import FAQSearchItem from "@/components/FAQSearchItem";
-
 import { mapGetters } from "vuex";
 
 export default {
@@ -37,7 +36,7 @@ export default {
 
 <style lang="scss">
 .search {
-  /* justify-content: center; */
+  overflow: auto;
 }
 
 .faq-popular,
@@ -47,18 +46,28 @@ export default {
   padding: 1.7em;
   margin: 0.5em 1em 0.5em 0.5em;
   max-height: 70vh;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
-h2,
+.h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
 p,
 a,
 .faq-btn {
   font-family: "Poppins", sans-serif;
 }
 
-.title {
+.faq-title {
   color: $and-blue;
+  text-align: center;
+  max-height: 9vh;
 }
 
 strong {

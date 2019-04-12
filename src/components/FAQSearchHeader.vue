@@ -78,6 +78,10 @@ export default {
   background-color: $and-red;
 }
 
+.ui-tabs--text-color-black .ui-tab-header-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .ui-tabs--indicator-color-primary .ui-tab-header-item::after {
   background-color: #ffffff;
 }

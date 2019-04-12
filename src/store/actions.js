@@ -14,7 +14,12 @@ export default {
   resetSearch({ commit }) {
     commit("RESET_SEARCH_TERM");
   },
-  addToFavourites({ commit }, faq) {
-    commit("ADD_TO_FAVOURITES", faq);
+  addToFavourites({ state, commit }, faq) {
+    if (!state.favouriteFaqs.includes(faq)) {
+      commit("ADD_TO_FAVOURITES", faq);
+    }
+  },
+  removeFromFavourites({ commit }, faq) {
+    commit("REMOVE_FROM_FAVOURITES", faq);
   }
 };
