@@ -1,27 +1,36 @@
 <template>
   <div class="faq">
-    <!-- <h1>faq</h1> -->
-    <Search />
+    <div id="tabs">
+      <!-- <router-link to="/faq/search">Search</router-link>
+      <router-link to="/faq/catagory">Catagory</router-link>
+      <router-link to="/faq/favourites">Favorites</router-link>-->
+    </div>
+    <router-view />
+
+    <FAQSearchHeader />
   </div>
 </template>
 
 <script>
-import Search from "@/components/Search";
-
+import FAQSearchHeader from "@/components/FAQSearchHeader";
 export default {
-  name: "faq",
+  name: "Faq",
   components: {
-    Search
+    FAQSearchHeader
   }
 };
 </script>
 
-<style lang="scss">
-h1 {
-  color: $color-foreground;
-  text-align: center;
+<style lang="scss" scoped>
+@import "@/styles/navbar.scss";
+#tabs {
+  @include bottom-nav(
+    $color-background,
+    $color-accent,
+    $color-foreground,
+    true
+  );
 }
-
 .faq {
   height: 100vh;
   display: flex;

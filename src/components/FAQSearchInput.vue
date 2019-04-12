@@ -2,17 +2,48 @@
   <div class="search-input">
     <i class="material-icons search-icon">search</i>
     <input
+      v-model="search"
       type="text"
       class="search-box"
-      placeholder="Search or ask us a question"
+      placeholder="Search or ask us a question..."
+      @input="onChange"
     />
-    <input type="submit" value="Search" class="searchButton" />
+    <!-- <input type="submit" value="search" class="searchButton"> -->
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  name: "searchinput"
+  name: "SearchInput",
+  props: {
+    faqs: {
+      type: Object
+    }
+  },
+  data() {
+    return {
+      search: "",
+      results: ""
+    };
+  },
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters(["getFaqs", "getFilteredFaqs"])
+  },
+  methods: {
+    onChange: function() {
+      if (this.search.length > 3) {
+        this.$store.dispatch("changeSearch", this.search.toLowerCase());
+        this.$store.dispatch("searchData");
+      } else {
+        this.$store.dispatch("resetSearch");
+        return;
+      }
+    },
+    ...mapActions(["changeSearch", "changeData"])
+  }
 };
 </script>
 

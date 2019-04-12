@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import FAQ from "./views/FAQ.vue";
+import FAQSearchView from "./views/FAQ/FAQSearchView.vue";
+import FAQCatagoryView from "./views/FAQ/FAQCatagoryView.vue";
+import FAQFavouriteView from "./views/FAQ/FAQFavouriteView.vue";
 import NextSteps from "./views/NextSteps.vue";
 import HandyANDi from "./views/HandyANDi.vue";
 
@@ -10,13 +13,35 @@ export default new Router({
   routes: [
     {
       path: "/",
+      redirect: "/next-steps"
+    },
+    {
+      path: "/next-steps",
       name: "next-steps",
       component: NextSteps
     },
     {
       path: "/faq",
       name: "faq",
-      component: FAQ
+      redirect: "/faq/search",
+      component: FAQ,
+      children: [
+        {
+          path: "search",
+          name: "search",
+          component: FAQSearchView
+        },
+        {
+          path: "catagory",
+          name: "catagory",
+          component: FAQCatagoryView
+        },
+        {
+          path: "favourites",
+          name: "favourites",
+          component: FAQFavouriteView
+        }
+      ]
     },
     {
       path: "/handy-andi",

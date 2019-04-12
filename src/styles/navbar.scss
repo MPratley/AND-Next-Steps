@@ -39,13 +39,18 @@ $bottom-nav-label-font-family: (
 $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
   0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
 
-@mixin bottom-nav($background-color, $active-color, $inactive-color) {
+@mixin bottom-nav($background-color, $active-color, $inactive-color, $position-top: false) {
   display: flex;
   align-items: center;
   justify-content: center;
 
+  @if $position-top == true {
+    top: 0;
+  } @else {
+    bottom: 0;
+  }
+
   position: fixed;
-  bottom: 0;
   left: 0;
   right: 0;
 
@@ -85,7 +90,7 @@ $bottom-nav-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     transition: transform 0.3s ease;
     transition: color 0.15s;
 
-    &.router-link-exact-active {
+    &.router-link-active {
       color: $active-color;
       i {
         transform: translate(0, -2px);

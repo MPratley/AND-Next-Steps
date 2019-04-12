@@ -1,3 +1,5 @@
 export default {
-  isAuth: undefined
+  isAuth: undefined,
+  searchTerm: "",
+  filteredFaqs: []
 };
