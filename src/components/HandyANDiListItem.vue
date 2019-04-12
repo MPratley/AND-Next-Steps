@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-card andi-card">
+  <div class="mdc-card andi-card mdc-card__primary-action" @click="removeAndi">
     <div
       v-if="gapiAndi"
       class="mdc-card__media mdc-card__media--square andi-image"
@@ -33,6 +33,14 @@ export default {
     return {
       gapiAndi: null
     };
+  },
+  methods: {
+    removeAndi() {
+      var temp = this.$store.state.user.data.handyAndi.filter(obj => {
+        return obj.email != this.andi.email;
+      });
+      this.$store.dispatch("user/patch", { handyAndi: temp });
+    }
   },
   created() {
     this.$getGapiClient().then(gapi => {
