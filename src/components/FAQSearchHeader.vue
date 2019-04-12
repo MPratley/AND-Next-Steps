@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       tabs: [
-        { id: 1, name: "Search", route: `/faq/search` },
-        { id: 2, name: "Category", route: `/faq/category` },
+        { id: 1, name: "Categories", route: `/faq/category` },
+        { id: 2, name: "Search", route: `/faq/search` },
         { id: 3, name: "Favourites", route: `/faq/favourites` }
       ]
     };
@@ -68,6 +68,11 @@ export default {
 
 .ui-tabs__body {
   display: none;
+}
+
+.ui-tabs {
+  /* margin-top: 1.5rem; */
+  width: 100%;
 }
 
 .ui-tabs--text-color-active-primary .ui-tab-header-item.is-active {

@@ -43,21 +43,13 @@ export default {
 .faq-search-results {
   display: flex;
   flex-direction: column;
-  padding: 1.7em;
+  padding: 0.1em;
   margin: 0.5em 1em 0.5em 0.5em;
   max-height: 70vh;
   /* overflow: auto; */
 }
 
-.h2 {
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
+h2,
 p,
 a,
 .faq-btn {

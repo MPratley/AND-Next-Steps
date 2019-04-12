@@ -1,6 +1,6 @@
 <template>
   <div class="category-box">
-    <p>Hi from FAQCategoryView</p>
+    <h2 class="title">Categories</h2>
   </div>
 </template>
 
@@ -14,5 +14,9 @@ export default {
 .category-box {
   height: 400px;
   width: 400px;
+}
+.title {
+  color: $and-blue;
+  text-align: center;
 }
 </style>
