@@ -20,13 +20,14 @@ describe("Next Steps", () => {
 
     expect(textContent).toEqual(["and-next-steps"]);
   });
-  it("When user clicks on FAQ link, then navigates new page URL matches", async () => {
-    jest.setTimeout(10000);
 
-    await page.evaluate("a", { text: "FAQ" });
+  // it("When user clicks on FAQ link, then navigates new page URL matches", async () => {
+  //   jest.setTimeout(10000);
 
-    const url = await page.url();
+  //   await page.evaluate("a", { text: "FAQ" });
 
-    expect(url).toMatch("http://localhost:8080/#/faq/search");
-  });
+  //   const url = await page.url();
+
+  //   expect(url).toMatch("http://localhost:8080/#/faq/search");
+  // });
 });
