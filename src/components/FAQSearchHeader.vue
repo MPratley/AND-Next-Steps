@@ -9,7 +9,7 @@
         :key="tab.id + ''"
         color="primary"
         :to="tab.route"
-        @select="checkTheThing"
+        @select="changeTheTab"
       >
         <div slot="header">
           <span>{{ tab.name }}</span>
@@ -41,12 +41,12 @@ export default {
     UiTab
   },
   computed: {
-    // mix the getters into computed with object spread operator
     ...mapGetters(["getFaqs", "getFilteredFaqs"])
   },
   methods: {
-    checkTheThing: function(selectedTabId) {
+    changeTheTab: function(selectedTabId) {
       let chosenTab = this.tabs.find(tab => tab.id == selectedTabId);
+      this.$store.dispatch("resetSearch");
       this.$router.push(`${chosenTab.route}`);
     }
   }
