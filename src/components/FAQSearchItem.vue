@@ -19,6 +19,16 @@
       <i class="material-icons" @click="addToFavourites" v-else>star_border</i>
     </div>
     <div v-show="open" class="faq-answer" v-text="faq.Answer" />
+    <div v-show="open" class="faq-helpful">
+      <h5>WAS THIS HELPFUL?</h5>
+      <div class="faq-smileys">
+        <i class="far fa-frown-open"></i>
+        <i class="far fa-frown"></i>
+        <i class="far fa-meh"></i>
+        <i class="far fa-smile"></i>
+        <i class="far fa-grin"></i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +43,8 @@ export default {
   data: function() {
     return {
       open: false,
-      starred: false
+      starred: false,
+      needsWork: false
     };
   },
   methods: {
@@ -44,6 +55,9 @@ export default {
     removeFromFavourites: function() {
       this.starred = false;
       this.$store.dispatch("removeFromFavourites", this.faq);
+    },
+    needsWorkExplanation: function() {
+      // if the 3 most negative faces are clicked, then prompt user to please provide explanation of why answer was not helpful. This will be recorded in FB.
     }
   }
 };
@@ -62,6 +76,16 @@ export default {
   align-self: flex-end;
 }
 
+.faq-helpful {
+  display: flex;
+  flex-flow: column;
+}
+
+.faq-smileys {
+  justify-items: space-between;
+  text-align: center;
+}
+
 .faq-search-item {
   background: #e5e5e5;
   font-family: "Lato", sans-serif;
@@ -74,9 +98,29 @@ export default {
   overflow: hidden;
 }
 
+.far {
+  font-weight: 400;
+  font-size: 30px;
+  padding: 0.5em;
+  opacity: 0.6;
+}
+
+.far:hover {
+  color: $and-red;
+}
 a {
   display: block;
   cursor: pointer;
   color: $and-blue;
+}
+
+h5 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 </style>
