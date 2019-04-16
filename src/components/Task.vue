@@ -1,11 +1,5 @@
 <template>
   <div class="taskCard">
-    <!-- <label class="label" :for="task.id" :class="{ done: isCompleted }">
-      {{
-      task.name
-      }}
-    </label>-->
-    <!-- <input type="checkbox" :id="task.id" v-model="isCompleted"> -->
     <div class="mdc-form-field">
       <label class="label" :for="task.id" :class="{ done: isCompleted }">{{
         task.name
