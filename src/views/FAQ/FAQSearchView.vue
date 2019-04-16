@@ -2,7 +2,8 @@
   <div class="search">
     <!-- <h2 class="faq-title">Hi, how can we help you today?</h2> -->
     <div class="faq-search-results" v-if="getSearchTerm !== ''">
-      <button v-on:click="goBack">Back</button>
+      <!-- <button v-on:click="goBack">Back</button> -->
+      <h4 v-on:click="goBack">Back</h4>
       <h2>Results for "{{ getSearchTerm }}"</h2>
       <FAQSearchItem v-for="faq in getFilteredFaqs" :key="faq.id" :faq="faq" />
     </div>
@@ -61,6 +62,18 @@ p,
 a,
 .faq-btn {
   font-family: "Poppins", sans-serif;
+}
+
+h4 {
+  display: flex;
+  width: 180px;
+}
+
+h4:before {
+  font-family: "Material Icons";
+  content: "arrow_back_ios";
+  padding-right: 5px;
+  padding-top: 4.5px;
 }
 
 .faq-title {

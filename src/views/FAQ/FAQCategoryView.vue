@@ -4,13 +4,13 @@
     <div class="row">
       <div class="column">
         <div class="category-column" @click="() => selectCategory('Club')">
-          <i class="material-icons category-icon">home</i>
+          <i class="material-icons category-icon" style="padding:35px">home</i>
           <br />Club
         </div>
       </div>
       <div class="column">
         <div class="category-column" @click="() => selectCategory('Company')">
-          <i class="material-icons category-icon">work</i>
+          <i class="material-icons category-icon" style="padding:35px">work</i>
           <br />Company
         </div>
       </div>
@@ -18,13 +18,15 @@
     <div class="row">
       <div class="column">
         <div class="category-column" @click="() => selectCategory('Me')">
-          <i class="material-icons category-icon">face</i>
+          <i class="material-icons category-icon" style="padding:35px">face</i>
           <br />Me
         </div>
       </div>
       <div class="column">
         <div class="category-column" @click="() => selectCategory('Client')">
-          <i class="material-icons category-icon">domain</i>
+          <i class="material-icons category-icon" style="padding:35px"
+            >domain</i
+          >
           <br />Client
         </div>
       </div>
@@ -62,7 +64,7 @@ export default {
 
 <style lang="scss">
 .category-icon {
-  font-size: 60px;
+  font-size: 75px;
   opacity: 0.7;
 }
 
@@ -93,7 +95,7 @@ export default {
 
 .category-column {
   background-color: #fafafa;
-  height: 7.5em;
+  height: 11em;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
   border-radius: 2px;
 }
