@@ -1,9 +1,7 @@
 <template>
   <div class="xpBarDiv">
     <!-- <p class="xpCount">{{ getXp }}%</p> -->
-    <div class="container">
-      <div :style="{ width: getXp + '%' }" class="xpBar"></div>
-    </div>
+    <div :style="{ width: getXp + '%' }" class="xpBar"></div>
   </div>
 </template>
 
@@ -23,19 +21,14 @@ export default {
   margin-bottom: 4px;
 }
 
-.container {
+.xpBarDiv {
   width: 100%;
-  background-color: $color-foreground;
+  height: fit-content;
   border: none;
-  border-radius: 200px;
-  padding: 4px;
 }
 
 .xpBar {
-  height: 12px;
-  color: $color-foreground;
-  background-color: $color-accent;
-  border: none;
-  border-radius: 200px;
+  background-color: $and-purple;
+  height: 20px;
 }
 </style>

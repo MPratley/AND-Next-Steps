@@ -1,9 +1,34 @@
 <template>
   <div class="taskCard">
-    <label class="label" :for="task.id" :class="{ done: isCompleted }">{{
+    <!-- <label class="label" :for="task.id" :class="{ done: isCompleted }">
+      {{
       task.name
-    }}</label>
-    <input type="checkbox" :id="task.id" v-model="isCompleted" />
+      }}
+    </label>-->
+    <!-- <input type="checkbox" :id="task.id" v-model="isCompleted"> -->
+    <div class="mdc-form-field">
+      <label class="label" :for="task.id" :class="{ done: isCompleted }">{{
+        task.name
+      }}</label>
+      <div class="mdc-checkbox">
+        <input
+          type="checkbox"
+          class="mdc-checkbox__native-control"
+          :id="task.id"
+          v-model="isCompleted"
+        />
+        <div class="mdc-checkbox__background">
+          <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+            <path
+              class="mdc-checkbox__checkmark-path"
+              fill="none"
+              d="M1.73,12.91 8.1,19.28 22.79,4.59"
+            ></path>
+          </svg>
+          <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,16 +71,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.taskCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  align-content: center;
-}
+@import "@material/form-field/mdc-form-field";
+@import "@material/checkbox/mdc-checkbox";
 
 label {
   font-size: 16px;
-  margin: 12px;
+}
+
+.mdc-form-field {
+  width: 100%;
+}
+
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+  background-color: $and-blue;
+  border-color: $and-blue;
 }
 
 .done {

@@ -55,6 +55,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  color: $and-blue;
+  font-weight: 800;
+}
 .taskList {
   margin-bottom: 54px;
 }
