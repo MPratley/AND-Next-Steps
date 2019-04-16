@@ -9,19 +9,10 @@
       loading
     </div>
     <div class="andi-textblock">
-      <h2>{{ gapiAndi.name.fullName }}</h2>
-      <p>{{ andi.relation }}</p>
-      <!-- <p>{{gapiAndi.thumbnailPhotoUrl}}</p> -->
+      <h2 class="name">{{ gapiAndi.name.fullName }}</h2>
+      <p class="relation">{{ andi.relation }}</p>
     </div>
   </div>
-  <!-- <p>{{ andi.relation }}</p>
-    <p v-if="!gapiAndi">{{ andi.email }}</p>
-    <div v-else>
-      <p>{{ gapiAndi.name.fullName }}</p>
-      <div class="ANDi">
-        <img class="thumbnail" :src="gapiAndi.thumbnailPhotoUrl">
-      </div>
-  </div>-->
 </template>
 
 <script>
@@ -64,6 +55,10 @@ export default {
 .andi-card {
   display: flex;
   flex-direction: row;
+}
+
+.relation {
+  text-align: left;
 }
 
 .andi-image {

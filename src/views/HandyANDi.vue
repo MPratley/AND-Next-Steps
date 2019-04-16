@@ -2,8 +2,21 @@
   <div class="handy-andi-list">
     <h1>Your ANDi</h1>
     <div v-if="createNewAndi" class="createNewAndi">
-      <label for="email">Andi's Email</label>
-      <input id="email" v-model="email" type="text" name="email" />
+      <ui-autocomplete
+        name="email"
+        help="Type the email of this ANDi"
+        label="Email"
+        placeholder="Email"
+        :suggestions="employees"
+        v-model="email"
+        @input="update"
+        :keys="{
+          label: 'primaryEmail',
+          value: 'primaryEmail',
+          image: 'primaryEmail'
+        }"
+        :filter="filter"
+      ></ui-autocomplete>
       <label for="role">Role of ANDi</label>
       <select id="role" v-model="role" name="role">
         <option>Squad Lead</option>
@@ -28,11 +41,13 @@
 
 <script>
 import HandyANDiListItem from "@/components/HandyANDiListItem";
+import { UiAutocomplete } from "keen-ui";
 
 export default {
   name: "Handy Andi",
   components: {
-    HandyANDiListItem
+    HandyANDiListItem,
+    UiAutocomplete
   },
   computed: {
     handyAndi() {
@@ -43,7 +58,8 @@ export default {
     return {
       createNewAndi: false,
       role: "",
-      email: ""
+      email: "",
+      employees: []
     };
   },
   methods: {
@@ -57,10 +73,30 @@ export default {
           { email: this.email, relation: this.role }
         ]
       });
+    },
+    update() {
+      if (this.email.length > 3) {
+        this.$getGapiClient().then(gapi => {
+          gapi.client.directory.users
+            .list({
+              customer: "my_customer",
+              viewType: "domain_public",
+              query: this.email
+            })
+            .then(data => {
+              this.employees = data.result.users;
+            });
+        });
+      }
+    },
+    filter(suggestion, query) {
+      if (
+        suggestion.primaryEmail.toLowerCase().includes(query.toLowerCase()) ||
+        suggestion.name.fullName.toLowerCase().includes(query.toLowerCase())
+      ) {
+        return true;
+      }
     }
-    //   this.$store.dispatch
-    //   this.$store.dispatch('user/set', this.$store.dispatch)
-    // }
   }
 };
 </script>
@@ -87,7 +123,7 @@ h1 {
 
 .new-andi {
   background-color: $color-accent;
-  position: absolute;
+  position: fixed;
   bottom: 100px;
   transform: translateX(-50%);
 }
