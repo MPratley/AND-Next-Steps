@@ -1,5 +1,5 @@
 <template>
-  <div class="taskCard">
+  <div class="taskCard" :class="{ hide: hideTask }">
     <div class="mdc-form-field">
       <label class="label" :for="task.id" :class="{ done: isCompleted }">{{
         task.name
@@ -31,12 +31,16 @@ import { mapGetters } from "vuex";
 export default {
   name: "Task",
   props: {
-    task: Object
+    task: Object,
+    hideCompleted: Boolean
   },
   data() {
     return {};
   },
   computed: {
+    hideTask() {
+      return this.hideCompleted && this.isCompleted;
+    },
     ...mapGetters(["user/getCompletedTasks"]),
     isCompleted: {
       get() {
@@ -84,5 +88,9 @@ label {
 .done {
   text-decoration: line-through;
   color: grey;
+}
+
+.hide {
+  display: none;
 }
 </style>

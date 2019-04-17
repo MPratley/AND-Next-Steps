@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material/checkbox": "^1.1.0",
+    "@material/fab": "^1.1.1",
     "@material/form-field": "^1.1.0",
     "core-js": "^2.6.5",
     "firebase": "^5.9.2",
