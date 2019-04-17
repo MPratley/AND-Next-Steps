@@ -6,6 +6,7 @@ import FAQCategoryView from "./views/FAQ/FAQCategoryView.vue";
 import FAQFavouriteView from "./views/FAQ/FAQFavouriteView.vue";
 import NextSteps from "./views/NextSteps.vue";
 import HandyANDi from "./views/HandyANDi.vue";
+import HandyANDiAddNew from "./views/HandiANDi/HandyANDiAddNew.vue";
 
 Vue.use(Router);
 
@@ -47,6 +48,11 @@ export default new Router({
       path: "/handy-andi",
       name: "handy-andi",
       component: HandyANDi
+    },
+    {
+      path: "/handy-andi/new",
+      name: "new-handy-andi",
+      component: HandyANDiAddNew
     }
     // {
     //   path: "/about",

@@ -9,7 +9,8 @@ import getters from "./getters";
 
 Vue.use(Vuex);
 
-import { firebase } from "@/firebase.js";
+import { firebase, initFirebase } from "@/firebase.js";
+import "firebase/auth";
 
 import tasks from "@/store/modules/tasks.js";
 import faqs from "@/store/modules/faqs.js";
@@ -30,5 +31,13 @@ const storeData = {
 };
 
 const store = new Vuex.Store(storeData);
+
+initFirebase().then(() => {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      store.dispatch("user/openDBChannel").catch(console.error);
+    }
+  });
+});
 
 export default store;

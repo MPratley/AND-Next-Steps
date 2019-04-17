@@ -5,7 +5,7 @@ import store from "./store/index";
 import "./registerServiceWorker";
 //firebase and gapi
 import VueGAPI from "vue-gapi";
-import { firebase, initFirebase } from "@/firebase.js";
+import { firebase } from "@/firebase.js";
 import "firebase/auth";
 
 const config = {
@@ -30,13 +30,6 @@ new Vue({
   router,
   store,
   created() {
-    initFirebase().then(() => {
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          this.$store.dispatch("user/openDBChannel").catch(console.error);
-        }
-      });
-    });
     this.$getGapiClient().then(gapi => {
       this.$store.commit(
         "updateAuthStatus",
