@@ -39,6 +39,6 @@ body,
   height: 100%;
 }
 body {
-  margin: 12px;
+  font-family: $app-font-family;
 }
 </style>

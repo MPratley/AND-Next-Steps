@@ -5,9 +5,10 @@ export default {
   getFavouriteFaqs: state => state.favouriteFaqs,
   getXp: state => {
     return state.user.data.completedTasks
-      ? (state.user.data.completedTasks.length /
-          Object.keys(state.tasks.data).length) *
-          100
+      ? parseInt(
+          state.user.data.completedTasks.length /
+            Object.keys(state.tasks.data).length
+        ) * 100
       : 0;
   }
 };

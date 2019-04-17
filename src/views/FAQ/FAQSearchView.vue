@@ -2,6 +2,7 @@
   <div class="search">
     <!-- <h2 class="faq-title">Hi, how can we help you today?</h2> -->
     <div class="faq-search-results" v-if="getSearchTerm !== ''">
+      <button v-on:click="goBack">Back</button>
       <h2>Results for "{{ getSearchTerm }}"</h2>
       <FAQSearchItem v-for="faq in getFilteredFaqs" :key="faq.id" :faq="faq" />
     </div>
@@ -30,6 +31,12 @@ export default {
   },
   created() {
     this.$store.dispatch("faqs/openDBChannel");
+  },
+  methods: {
+    goBack: function() {
+      console.log("goBack");
+      this.$router.go(-1);
+    }
   }
 };
 </script>
