@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "faq",
+  name: "Faq",
   components: {},
   data() {
     return {
