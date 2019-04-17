@@ -4,10 +4,10 @@ export default {
   getSearchTerm: state => state.searchTerm,
   getFavouriteFaqs: state => state.favouriteFaqs,
   getXp: state => {
-    return (
+    return parseInt(
       (state.user.data.completedTasks.length /
         Object.keys(state.tasks.data).length) *
-      100
+        100
     );
   }
 };
