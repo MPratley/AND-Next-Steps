@@ -52,7 +52,7 @@ export default {
       this.$router.go(-1);
     },
     update() {
-      if (this.email.length > 3) {
+      if (this.email.length >= 3) {
         this.$getGapiClient().then(gapi => {
           gapi.client.directory.users
             .list({

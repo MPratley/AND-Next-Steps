@@ -17,13 +17,11 @@
 
 <script>
 import HandyANDiListItem from "@/components/HandyANDiListItem";
-// import { UiAutocomplete } from "keen-ui";
 
 export default {
   name: "HandyAndi",
   components: {
     HandyANDiListItem
-    // UiAutocomplete
   },
   computed: {
     handyAndi() {
@@ -54,40 +52,6 @@ export default {
         this.bigFab = false;
       }
     }
-    // toggleCreateNewAndi() {
-    //   this.createNewAndi = !this.createNewAndi;
-    // },
-    // add() {
-    //   this.$store.dispatch("user/set", {
-    //     handyAndi: [
-    //       ...this.handyAndi,
-    //       { email: this.email, relation: this.role }
-    //     ]
-    //   });
-    // },
-    // update() {
-    //   if (this.email.length > 3) {
-    //     this.$getGapiClient().then(gapi => {
-    //       gapi.client.directory.users
-    //         .list({
-    //           customer: "my_customer",
-    //           viewType: "domain_public",
-    //           query: this.email
-    //         })
-    //         .then(data => {
-    //           this.employees = data.result.users;
-    //         });
-    //     });
-    //   }
-    // },
-    // filter(suggestion, query) {
-    //   if (
-    //     suggestion.primaryEmail.toLowerCase().includes(query.toLowerCase()) ||
-    //     suggestion.name.fullName.toLowerCase().includes(query.toLowerCase())
-    //   ) {
-    //     return true;
-    //   }
-    // }
   }
 };
 </script>
